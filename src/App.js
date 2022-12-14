@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import BallotCategory from './Components/BallotCategory/BallotCategory';
+import Modal from './Components/Modal/Modal';
 
 const API_URL = `http://localhost:8080/api/getBallotData`
 
@@ -16,38 +17,31 @@ function App() {
     setBallotCategories(data.items);
   }
 
-  const vote = (category, nominee) => {
+  const vote = (category, nomineeId, nominee) => {
     if(voteSubmitted) {
       return;
     }
 
     const currentBallot = ballotVote.slice();
-    const currentCategoryVote = ballotVote.find((vote) => vote.category === category && vote.nominee === nominee);
+    const currentCategoryVote = ballotVote.find((vote) => vote.category === category && vote.nomineeId === nomineeId);
     if (!!currentCategoryVote) {
       setBallotVote(currentBallot.filter((vote) => vote.category !== category));
     } else {
       setBallotVote(currentBallot.filter((vote) => vote.category !== category)
-                                 .concat({category : category, nominee : nominee}));
+                                 .concat({category : category, nomineeId : nomineeId, nominee : nominee}));
     }
   }
 
   useEffect(() => {
     getBallotData();
   },[])
-
-  useEffect(() => {
-    console.log(ballotVote);
-  },[ballotVote])
-
-  useEffect(() => {
-    voteSubmitted && alert(`Congratulations! You voted for: \n ${ballotVote.map((vote) => vote.nominee).join("\n")}`);
-  },[voteSubmitted,ballotVote])
   
   return (
     <div className="App">
+      <Modal isVisible={voteSubmitted} ballot={ballotVote}/>
       <header className="App-header">
         <img src={'https://www.svgrepo.com/show/349409/imdb.svg'} className="App-logo" alt="logo" />
-        <h1>AWARDS 2021</h1>
+        <h1>AWARDS 2022</h1>
       </header>
       <div>
         {ballotCategories?.length

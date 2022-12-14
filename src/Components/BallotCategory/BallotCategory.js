@@ -9,8 +9,8 @@ const BallotCategory = ({category, ballotVote, categoryNomination}) => {
             <div className="ballot-container">
                 {
                     category.items.map((nomination) => 
-                        <Ballot isNominated={nomination.id===categoryNomination?.nominee}
-                                vote={() => ballotVote(nomination.id)}
+                        <Ballot isNominated={nomination.id===categoryNomination?.nomineeId}
+                                vote={() => ballotVote(nomination.id, nomination)}
                                 key={nomination.id} 
                                 nomination={nomination}
                         />)
