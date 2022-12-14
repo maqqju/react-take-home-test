@@ -1,0 +1,133 @@
+.App {
+  text-align: center;
+  background-color: #0D2436;
+}
+
+.App button.btnVote {
+  background-color: #009B86;
+  cursor: pointer;
+  color: white;
+  border-radius: 16px;
+  right: 20px;
+  position: fixed;
+  width: 120px;
+  padding: 25px;
+  top: 85%;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-weight: bold;
+  font-size: large;
+}
+
+.App-logo {
+  height: 15vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #50B074;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+section div:nth-of-type(1) h1{
+  background-color: #343739;
+  padding: 1rem;
+  color: #FFFFFF;
+}
+
+.ballot-container {
+  width: 100%;
+  margin-top: 3rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.ballot {
+  background-color: #34ac9c38;
+  display: flex;
+  width: 310px;
+  height: 460px;
+  margin: 1.5rem;
+
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.ballot div:nth-of-type(1) {
+  position: absolute;
+  padding: 16px;
+  opacity: 0;
+  top: 0;
+}
+
+.ballot div:nth-of-type(2) {
+  width: 75%;
+  height: 75%;
+  padding: 10px 50px;
+}
+
+.ballot div:nth-of-type(2) img {
+  height: 100%;
+  width: 100%;
+}
+
+.ballot:hover {
+  background-color: #009B86;
+}
+
+.ballot:hover div:nth-of-type(1) {
+  width: 280px;
+  height: 50px;
+  background-color: #343739;
+  color: #FFFFFF;
+  opacity: 0.85;
+  padding: 24px;
+}
+
+.nominated {
+  background-color: #009B86;
+}
+
+.ballot div:nth-of-type(3) {
+  z-index: 2;
+  background-color: #343739;
+  padding: 16px 24px 24px 24px;
+
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.ballot div:nth-of-type(3) button {
+  border-radius: 6px;
+  width: 75%;
+  height: 30px;
+  background-color: #423300;
+  color: #FFFFFF;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-weight: bold;
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
